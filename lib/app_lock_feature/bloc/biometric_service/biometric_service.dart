@@ -50,15 +50,11 @@ class BiometricService {
     return BiometricTypeForApple.none;
   }
 
-  Future<bool> isBiometricAppLockPossible() async {
-    final canAuthenticateWithBiometrics = await localAuth.canCheckBiometrics;
-    final isDeviceSupported = await localAuth.isDeviceSupported();
-    final canAuthenticate = canAuthenticateWithBiometrics || isDeviceSupported;
-    final isBiometricsAvailable =
-        await sl<BiometricService>().isBiometricsAvailable();
-    final shouldShow = await shouldShowBiometricWhenAppEntersForeground();
+  Future<bool> isAppLockEnabled() async {
+    bool isAppLockEnabled = sl<McDataRepo>().getAppLockStatus();
 
-    return canAuthenticate && shouldShow;
+    return isAppLockEnabled &&
+        (await shouldShowBiometricWhenAppEntersForeground());
   }
 
   Future<bool> isPasswordAppLockPossible() async {
@@ -88,9 +84,9 @@ class BiometricService {
         authorized = await localAuth.authenticate(
           localizedReason: "Confirm your identity to continue.",
           options: const AuthenticationOptions(
-            biometricOnly: true,
+            biometricOnly: false,
             useErrorDialogs: false,
-            stickyAuth: true,
+            stickyAuth: false,
           ),
           authMessages: [
             const AndroidAuthMessages(

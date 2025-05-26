@@ -35,25 +35,16 @@ class AppLockPreferencesCubit extends Cubit<AppLockPreferencesState> {
       }
       await updateLockState();
     } else {
-      if (isBiometricsAvailable) {
-        await mcDataRepo.setAppLockMethod(
-          appLockMethod: AppConstants.noAppLock,
-        );
-        await mcDataRepo.setAppLockStatus(enableAppLock: value);
-        await mcDataRepo.setAppLockTime(appLockTime: 0);
-        emit(state.copyWith(
-          appLockActivated: value,
-          lockType: LockType.none,
-          actionTime: RequireOptions.immediately,
-        ));
-      } else {
-        showAppLockDialog(
-            context: context!,
-            errorTitle: "Unable to Change",
-            errorMessage: (Platform.isIOS || Platform.isMacOS)
-                ? "Before you can disable App Lock, you must turn on ${state.availableBiometricOption} & Passcode in your device settings."
-                : "Before you can disable App Lock, you must set up biometric authentication or PIN in your device settings.");
-      }
+      await mcDataRepo.setAppLockMethod(
+        appLockMethod: AppConstants.noAppLock,
+      );
+      await mcDataRepo.setAppLockStatus(enableAppLock: value);
+      await mcDataRepo.setAppLockTime(appLockTime: 0);
+      emit(state.copyWith(
+        appLockActivated: value,
+        lockType: LockType.none,
+        actionTime: RequireOptions.immediately,
+      ));
     }
   }
 

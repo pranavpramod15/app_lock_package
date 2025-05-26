@@ -31,7 +31,7 @@ class AppLockCubit extends Cubit<AppLockState> {
       previousLifecycleState = lifecycleState;
     } else if (lifecycleState == AppLifecycleState.resumed) {
       if (previousLifecycleState == AppLifecycleState.resumed) return;
-      if (await sl<BiometricService>().isBiometricAppLockPossible()) {
+      if (await sl<BiometricService>().isAppLockEnabled()) {
         await authenticateWithBiometrics();
         previousLifecycleState = lifecycleState;
       } else if (await sl<BiometricService>().isPasswordAppLockPossible()) {
@@ -57,7 +57,7 @@ class AppLockCubit extends Cubit<AppLockState> {
       return;
     }
     if (lifecycleState == AppLifecycleState.resumed) {
-      if (await sl<BiometricService>().isBiometricAppLockPossible()) {
+      if (await sl<BiometricService>().isAppLockEnabled()) {
         await authenticateWithBiometrics();
       } else if (await sl<BiometricService>().isPasswordAppLockPossible()) {
         emit(LoginWithPassword());
@@ -78,14 +78,15 @@ class AppLockCubit extends Cubit<AppLockState> {
     if (appLockInProgress) {
       return;
     }
+    final isBiometricAppLockPossible =
+        await sl<BiometricService>().isAppLockEnabled();
+    final isPasswordAppLockPossible =
+        await sl<BiometricService>().isPasswordAppLockPossible();
     if (lifecycleState == AppLifecycleState.resumed) {
-      if (await sl<BiometricService>().isBiometricAppLockPossible()) {
-        await authenticateWithBiometrics();
-      } else if (await sl<BiometricService>().isPasswordAppLockPossible()) {
-        emit(LoginWithPassword());
-      } else {
-        blurCubit.removeBlur();
-      }
+      await authenticateWithBiometrics();
+
+      blurCubit.removeBlur();
+
       previousLifecycleState = lifecycleState;
     } else if (lifecycleState == AppLifecycleState.inactive ||
         lifecycleState == AppLifecycleState.paused) {
@@ -133,7 +134,7 @@ class AppLockCubit extends Cubit<AppLockState> {
   }) async {
     appLockInProgress = true;
     authenticationSuccessful = false;
-    if (await sl<BiometricService>().isBiometricsAvailable()) {
+    if (await sl<BiometricService>().isAppLockEnabled()) {
       if (await sl<BiometricService>().authenticate()) {
         authenticationSuccessful = true;
 
