@@ -69,8 +69,24 @@ flutter run
 
 ## 📚 Dependencies
 
-- [`local_auth`](https://pub.dev/packages/local_auth)
-- [`shared_preferences`](https://pub.dev/packages/shared_preferences)
+This package uses the following Flutter and Dart packages:
+
+| Package | Description |
+|--------|-------------|
+| [`app_settings`](https://pub.dev/packages/app_settings) | Opens device settings from the app |
+| [`device_info_plus`](https://pub.dev/packages/device_info_plus) | Provides detailed device info |
+| [`equatable`](https://pub.dev/packages/equatable) | Simplifies value comparison in Dart classes |
+| [`flutter`](https://flutter.dev) | Flutter SDK |
+| [`flutter_app_lock`](https://pub.dev/packages/flutter_app_lock) | Simple app lock screen implementation |
+| [`flutter_bloc`](https://pub.dev/packages/flutter_bloc) | State management using BLoC pattern |
+| [`flutter_switch`](https://pub.dev/packages/flutter_switch) | A beautiful customizable switch widget |
+| [`get_it`](https://pub.dev/packages/get_it) | Dependency injection service locator |
+| [`local_auth`](https://pub.dev/packages/local_auth) | Biometric authentication |
+| [`local_auth_android`](https://pub.dev/packages/local_auth_android) | Android-specific implementation for local_auth |
+| [`local_auth_darwin`](https://pub.dev/packages/local_auth_darwin) | iOS/macOS implementation for local_auth |
+| [`shared_preferences`](https://pub.dev/packages/shared_preferences) | Persistent key-value storage |
+| [`url_launcher`](https://pub.dev/packages/url_launcher) | Launch URLs in a browser or web view |
+| [`window_manager`](https://pub.dev/packages/window_manager) | Manage and control app windows (desktop) |
 
 ## ✅ TODO
 
@@ -85,8 +101,5 @@ GitHub: [@pranavpramod15](https://github.com/pranavpramod15)
 
 ---
 
-> Feel free to contribute or open an issue if you find a bug or want a feature!
 
-## 📄 License
 
-MIT License — see [`LICENSE`](https://github.com/pranavpramod15/app_lock_package/blob/main/LICENSE) file for details.
