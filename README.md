@@ -1,39 +1,92 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# App Lock Package 🔐
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
+A lightweight and customizable Flutter package to add **biometric and passcode-based app locking** functionality to any Flutter app. This is ideal for enhancing app security and privacy with minimal setup.
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
+## ✨ Features
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+- App lock using biometrics (Face ID, Touch ID, etc.)
+- Fallback to PIN/passcode screen
+- Supports:
+  - Lock on app open
+  - Lock on app resume/background
+  - Lock after custom timeout
+- Easy integration and configuration
+- Customizable lock screen UI
 
-## Features
+## 🛠️ Installation
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+Add the package to your `pubspec.yaml`:
 
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
-```dart
-const like = 'sample';
+```yaml
+dependencies:
+  app_lock_package:
+    git:
+      url: https://github.com/pranavpramod15/app_lock_package.git
 ```
 
-## Additional information
+Then run:
+```bash
+flutter pub get
+```
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+## 🚀 Usage
+
+Wrap your app with the `AppLockWrapper`:
+
+```dart
+AppLockWrapper(
+  child: MyApp(),
+  lockConfig: LockConfig(
+    enableBiometrics: true,
+    lockOnResume: true,
+    lockTimeout: Duration(minutes: 1),
+  ),
+)
+```
+
+You can also trigger lock/unlock programmatically using the controller.
+
+## 🔐 Lock Screen Customization
+
+Customize the lock screen using the available builder methods:
+
+```dart
+AppLockWrapper(
+  lockScreenBuilder: (context, controller) => MyCustomLockScreen(controller: controller),
+  ...
+)
+```
+
+## 📦 Example
+
+See the [`example/`](https://github.com/pranavpramod15/app_lock_package/tree/main/example) folder for a working demo.
+
+To run:
+```bash
+cd example
+flutter run
+```
+
+## 📚 Dependencies
+
+- [`local_auth`](https://pub.dev/packages/local_auth)
+- [`shared_preferences`](https://pub.dev/packages/shared_preferences)
+
+## ✅ TODO
+
+- [ ] Add support for custom themes
+- [ ] Persist failed attempts
+- [ ] Unit tests
+
+## 🧑‍💻 Author
+
+**Pranav Pramod**  
+GitHub: [@pranavpramod15](https://github.com/pranavpramod15)
+
+---
+
+> Feel free to contribute or open an issue if you find a bug or want a feature!
+
+## 📄 License
+
+MIT License — see [`LICENSE`](https://github.com/pranavpramod15/app_lock_package/blob/main/LICENSE) file for details.
