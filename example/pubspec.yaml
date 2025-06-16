@@ -35,7 +35,8 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   app_lock:
-    path: ../
+    git:
+      url: https://github.com/pranavpramod15/app_lock_package.git
   flutter_bloc: ^9.1.0
   flutter_switch: ^0.3.2
 
