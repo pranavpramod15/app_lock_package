@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:app_lock/app_lock_feature/bloc/app_lock_preferences/app_lock_preferences_cubit.dart';
-import 'package:app_lock/app_lock_feature/bloc/app_lock_preferences/app_lock_preferences_state.dart';
+import 'package:app_lock/app_lock_feature/cubits/app_lock_preferences/app_lock_preferences_cubit.dart';
+import 'package:app_lock/app_lock_feature/cubits/app_lock_preferences/app_lock_preferences_state.dart';
 import 'package:app_lock/app_lock_feature/widgets/app_lock_selection.dart';
 import 'package:app_lock/app_lock_feature/widgets/app_lock_switch.dart';
 import 'package:app_lock/app_lock_feature/widgets/app_lock_type_selection.dart';

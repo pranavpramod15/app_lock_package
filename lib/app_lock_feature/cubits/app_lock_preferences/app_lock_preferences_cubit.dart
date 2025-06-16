@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:app_lock/app_lock_feature/bloc/app_lock_preferences/app_lock_preferences_state.dart';
-import 'package:app_lock/app_lock_feature/bloc/biometric_service/biometric_service.dart';
+import 'package:app_lock/app_lock_feature/cubits/app_lock_preferences/app_lock_preferences_state.dart';
+import 'package:app_lock/app_lock_feature/cubits/biometric_service/biometric_service.dart';
 import 'package:app_lock/app_lock_feature/locator.dart';
 import 'package:app_lock/app_lock_feature/widgets/app_lock_dialog.dart';
 import 'package:app_lock/mc_data_repo.dart';

@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:app_lock/app_lock_feature/bloc/biometric_service/biometric_service.dart';
-import 'package:app_lock/app_lock_feature/bloc/blur/blur_cubit.dart';
+import 'package:app_lock/app_lock_feature/cubits/biometric_service/biometric_service.dart';
+import 'package:app_lock/app_lock_feature/cubits/blur/blur_cubit.dart';
 import 'package:app_lock/app_lock_feature/locator.dart';
 import 'package:app_lock/mc_data_repo.dart';
 import 'package:flutter/material.dart';

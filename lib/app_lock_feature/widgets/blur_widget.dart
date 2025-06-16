@@ -1,5 +1,5 @@
 import 'dart:ui';
-import 'package:app_lock/app_lock_feature/bloc/blur/blur_cubit.dart';
+import 'package:app_lock/app_lock_feature/cubits/blur/blur_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

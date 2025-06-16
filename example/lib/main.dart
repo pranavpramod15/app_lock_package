@@ -1,7 +1,7 @@
 import 'package:app_lock/app_lock.dart';
-import 'package:app_lock/app_lock_feature/bloc/app_lock_functioanlity/app_lock_cubit.dart';
-import 'package:app_lock/app_lock_feature/bloc/app_lock_preferences/app_lock_preferences_cubit.dart';
-import 'package:app_lock/app_lock_feature/bloc/blur/blur_cubit.dart';
+import 'package:app_lock/app_lock_feature/cubits/app_lock_functioanlity/app_lock_cubit.dart';
+import 'package:app_lock/app_lock_feature/cubits/app_lock_preferences/app_lock_preferences_cubit.dart';
+import 'package:app_lock/app_lock_feature/cubits/blur/blur_cubit.dart';
 import 'package:app_lock/app_lock_feature/locator.dart';
 import 'package:app_lock/app_lock_feature/widgets/app_lock_wrapper.dart';
 import 'package:app_lock/app_lock_feature/widgets/blur_widget.dart';
