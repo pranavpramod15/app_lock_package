@@ -9,7 +9,7 @@ A lightweight and customizable Flutter package to add **biometric and passcode-b
 - Supports:
   - Lock on app open
   - Lock on app resume/background
-  - Lock after custom timeout
+  - Lock after pre-defined timeouts [Immediately, 1 min, 15 min, 1 hour]
 - Easy integration and configuration
 - Customizable lock screen UI
 
